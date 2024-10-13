@@ -47,4 +47,8 @@ To run this project locally, ensure you have Flutter installed. Follow these ste
 
 Below is a screenshot of the Calculator app's output:
 
-![Calculator Output](./calculator_output.png)
+
+
+
+![Screenshot 2024-10-12 225810](https://github.com/user-attachments/assets/6ac05d38-fd4a-49eb-8b8c-1adeaae8970c)
+
