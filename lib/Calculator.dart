@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
-class calculator extends StatefulWidget {
-  const calculator({super.key});
+class Calculator extends StatefulWidget {
+  const Calculator({super.key});
 
   @override
-  State<calculator> createState() => _calculatorState();
+  State<Calculator> createState() => _CalculatorState();
 }
 
-class _calculatorState extends State<calculator> {
+class _CalculatorState extends State<Calculator> {
   var userInput = '';
   var result = '';
 
@@ -16,7 +16,7 @@ class _calculatorState extends State<calculator> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white, // Background color
         body: Column(
           children: [
             Expanded(
@@ -29,9 +29,9 @@ class _calculatorState extends State<calculator> {
                     children: [
                       Align(
                         alignment: Alignment.centerRight,
-                        child: Text(result.toString(), style: TextStyle(fontSize: 50)),
+                        child: Text(result.toString(), style: TextStyle(fontSize: 50, color: Colors.blueAccent)), // Result text color
                       ),
-                      Text(userInput.toString(), style: TextStyle(fontSize: 50)),
+                      Text(userInput.toString(), style: TextStyle(fontSize: 50, color: Colors.black)), // User input color
                     ],
                   ),
                 ),
@@ -44,21 +44,21 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "AC", onPress: () {
+                      MyButton(title: "C", onPress: () {
                         setState(() {
                           userInput = '';
                           result = '';
                         });
-                      }),
-                      myButton(title: "+/-", onPress: () {
+                      }, color: Colors.redAccent), // Clear button color
+                      MyButton(title: "+/-", onPress: () {
                         setState(() {});
-                      }),
-                      myButton(title: "%", onPress: () {
+                      }, color: Colors.orange),
+                      MyButton(title: "%", onPress: () {
                         setState(() {
                           userInput = userInput + '%';
                         });
-                      }),
-                      myButton(color: Colors.pinkAccent, title: "/", onPress: () {
+                      }, color: Colors.green),
+                      MyButton(color: Colors.pinkAccent, title: "/", onPress: () {
                         setState(() {
                           userInput = userInput + '/';
                         });
@@ -68,22 +68,22 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "7", onPress: () {
+                      MyButton(title: "7", onPress: () {
                         setState(() {
                           userInput = userInput + '7';
                         });
-                      }),
-                      myButton(title: "8", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "8", onPress: () {
                         setState(() {
                           userInput = userInput + '8';
                         });
-                      }),
-                      myButton(title: "9", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "9", onPress: () {
                         setState(() {
                           userInput = userInput + '9';
                         });
-                      }),
-                      myButton(color: Colors.grey, title: "X", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(color: Colors.grey, title: "X", onPress: () {
                         setState(() {
                           userInput = userInput + 'X';
                         });
@@ -93,22 +93,22 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "4", onPress: () {
+                      MyButton(title: "4", onPress: () {
                         setState(() {
                           userInput = userInput + '4';
                         });
-                      }),
-                      myButton(title: "5", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "5", onPress: () {
                         setState(() {
                           userInput = userInput + '5';
                         });
-                      }),
-                      myButton(title: "6", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "6", onPress: () {
                         setState(() {
                           userInput = userInput + '6';
                         });
-                      }),
-                      myButton(color: Colors.green, title: "-", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(color: Colors.green, title: "-", onPress: () {
                         setState(() {
                           userInput = userInput + '-';
                         });
@@ -118,22 +118,22 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "1", onPress: () {
+                      MyButton(title: "1", onPress: () {
                         setState(() {
                           userInput = userInput + '1';
                         });
-                      }),
-                      myButton(title: "2", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "2", onPress: () {
                         setState(() {
                           userInput = userInput + '2';
                         });
-                      }),
-                      myButton(title: "3", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "3", onPress: () {
                         setState(() {
                           userInput = userInput + '3';
                         });
-                      }),
-                      myButton(color: Colors.orange, title: "+", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(color: Colors.orange, title: "+", onPress: () {
                         setState(() {
                           userInput = userInput + '+';
                         });
@@ -143,62 +143,52 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "0", onPress: () {
+                      MyButton(title: "0", onPress: () {
                         setState(() {
                           userInput = userInput + '0';
                         });
-                      }),
-                      myButton(title: "DEL", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(title: "DEL", onPress: () {
                         setState(() {
-                          userInput = userInput.substring(0, userInput.length - 1);
+                          if (userInput.isNotEmpty) {
+                            userInput = userInput.substring(0, userInput.length - 1);
+                          }
                         });
-                      }),
-                      myButton(title: ".", onPress: () {
+                      }, color: Colors.red),
+                      MyButton(title: ".", onPress: () {
                         setState(() {
                           userInput = userInput + '.';
                         });
-                      }),
-                      myButton(color: Colors.red, title: "=", onPress: () {
+                      }, color: Colors.blue),
+                      MyButton(color: Colors.red, title: "=", onPress: () {
                         equalPress();
                       }),
                     ],
                   ),
-                  // New row for additional functions
+                  // New row for scientific functions
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(
-                        title: "sin",
-                        color: Colors.purple,
-                        shape: BoxShape.rectangle,
-                        onPress: () {
-                          setState(() {});
-                        },
-                      ),
-                      myButton(
-                        title: "cos",
-                        color: Colors.green,
-                        shape: BoxShape.rectangle,
-                        onPress: () {
-                          setState(() {});
-                        },
-                      ),
-                      myButton(
-                        title: "tan",
-                        color: Colors.blue,
-                        shape: BoxShape.rectangle,
-                        onPress: () {
-                          setState(() {});
-                        },
-                      ),
-                      myButton(
-                        title: "√",
-                        color: Colors.red,
-                        shape: BoxShape.rectangle,
-                        onPress: () {
-                          setState(() {});
-                        },
-                      ),
+                      MyButton(title: "sin", color: Colors.purple, onPress: () {
+                        setState(() {
+                          userInput = "sin(" + userInput + ")";
+                        });
+                      }),
+                      MyButton(title: "cos", color: Colors.green, onPress: () {
+                        setState(() {
+                          userInput = "cos(" + userInput + ")";
+                        });
+                      }),
+                      MyButton(title: "tan", color: Colors.blue, onPress: () {
+                        setState(() {
+                          userInput = "tan(" + userInput + ")";
+                        });
+                      }),
+                      MyButton(title: "√", color: Colors.red, onPress: () {
+                        setState(() {
+                          userInput = "sqrt(" + userInput + ")";
+                        });
+                      }),
                     ],
                   ),
                 ],
@@ -224,31 +214,37 @@ class _calculatorState extends State<calculator> {
   }
 }
 
-class myButton extends StatelessWidget {
+class MyButton extends StatelessWidget {
   final String title;
   final Color color;
   final VoidCallback onPress;
-  final BoxShape shape; // New parameter for button shape
 
-  myButton({super.key, required this.title, this.color = Colors.grey, required this.onPress, this.shape = BoxShape.circle});
+  MyButton({super.key, required this.title, this.color = Colors.grey, required this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPress,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0), // Increased padding for better touch targets
         child: Container(
           height: 70,
           width: 70,
           decoration: BoxDecoration(
             color: color,
-            shape: shape,
+            borderRadius: BorderRadius.circular(20), // Rounded corners
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0, 2),
+                blurRadius: 5,
+              ),
+            ],
           ),
           child: Center(
             child: Text(
               title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white), // Updated text style
             ),
           ),
         ),
@@ -256,3 +252,4 @@ class myButton extends StatelessWidget {
     );
   }
 }
+
