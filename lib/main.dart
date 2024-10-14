@@ -18,9 +18,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        primaryColor: Colors.blue, // Changed primary color to blue
+        accentColor: Colors.amber, // Optionally added an accent color
       ),
-      home: calculator(),
+      home: const Calculator(), // Renamed calculator() to Calculator()
     );
   }
 }
+
