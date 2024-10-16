@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.dark
       ),
-      home: calculator(),
+      home: const calculator(),
     );
   }
 }

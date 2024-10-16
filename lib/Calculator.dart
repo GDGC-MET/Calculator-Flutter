@@ -29,9 +29,9 @@ class _calculatorState extends State<calculator> {
                     children: [
                       Align(
                         alignment: Alignment.centerRight,
-                        child: Text(result.toString(), style: TextStyle(fontSize: 50)),
+                        child: Text(result.toString(), style: const TextStyle(fontSize: 50)),
                       ),
-                      Text(userInput.toString(), style: TextStyle(fontSize: 50)),
+                      Text(userInput.toString(), style: const TextStyle(fontSize: 50)),
                     ],
                   ),
                 ),
@@ -44,10 +44,12 @@ class _calculatorState extends State<calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      myButton(title: "AC", onPress: () {
+                      myButton(title: "AC",                        color: Color(0xFFF3A908),
+                          onPress: () {
                         setState(() {
                           userInput = '';
                           result = '';
+
                         });
                       }),
                       myButton(title: "+/-", onPress: () {
@@ -55,12 +57,13 @@ class _calculatorState extends State<calculator> {
                       }),
                       myButton(title: "%", onPress: () {
                         setState(() {
-                          userInput = userInput + '%';
+                          userInput = '$userInput%';
                         });
                       }),
-                      myButton(color: Colors.pinkAccent, title: "/", onPress: () {
+                      myButton(                        color: Color(0xFFF3A908),
+                            title: "/", onPress: () {
                         setState(() {
-                          userInput = userInput + '/';
+                          userInput = '$userInput/';
                         });
                       }),
                     ],
@@ -70,22 +73,23 @@ class _calculatorState extends State<calculator> {
                     children: [
                       myButton(title: "7", onPress: () {
                         setState(() {
-                          userInput = userInput + '7';
+                          userInput = '${userInput}7';
                         });
                       }),
                       myButton(title: "8", onPress: () {
                         setState(() {
-                          userInput = userInput + '8';
+                          userInput = '${userInput}8';
                         });
                       }),
                       myButton(title: "9", onPress: () {
                         setState(() {
-                          userInput = userInput + '9';
+                          userInput = '${userInput}9';
                         });
                       }),
-                      myButton(color: Colors.grey, title: "X", onPress: () {
+                      myButton(                        color: Color(0xFFF3A908),
+                          title: "X", onPress: () {
                         setState(() {
-                          userInput = userInput + 'X';
+                          userInput = '${userInput}X';
                         });
                       }),
                     ],
@@ -95,22 +99,23 @@ class _calculatorState extends State<calculator> {
                     children: [
                       myButton(title: "4", onPress: () {
                         setState(() {
-                          userInput = userInput + '4';
+                          userInput = '${userInput}4';
                         });
                       }),
                       myButton(title: "5", onPress: () {
                         setState(() {
-                          userInput = userInput + '5';
+                          userInput = '${userInput}5';
                         });
                       }),
                       myButton(title: "6", onPress: () {
                         setState(() {
-                          userInput = userInput + '6';
+                          userInput = '${userInput}6';
                         });
                       }),
-                      myButton(color: Colors.green, title: "-", onPress: () {
+                      myButton(                        color: Color(0xFFF3A908),
+                          title: "-", onPress: () {
                         setState(() {
-                          userInput = userInput + '-';
+                          userInput = '$userInput-';
                         });
                       }),
                     ],
@@ -120,22 +125,23 @@ class _calculatorState extends State<calculator> {
                     children: [
                       myButton(title: "1", onPress: () {
                         setState(() {
-                          userInput = userInput + '1';
+                          userInput = '${userInput}1';
                         });
                       }),
                       myButton(title: "2", onPress: () {
                         setState(() {
-                          userInput = userInput + '2';
+                          userInput = '${userInput}2';
                         });
                       }),
                       myButton(title: "3", onPress: () {
                         setState(() {
-                          userInput = userInput + '3';
+                          userInput = '${userInput}3';
                         });
                       }),
-                      myButton(color: Colors.orange, title: "+", onPress: () {
+                      myButton(                        color: Color(0xFFF3A908),
+                          title: "+", onPress: () {
                         setState(() {
-                          userInput = userInput + '+';
+                          userInput = '$userInput+';
                         });
                       }),
                     ],
@@ -145,7 +151,7 @@ class _calculatorState extends State<calculator> {
                     children: [
                       myButton(title: "0", onPress: () {
                         setState(() {
-                          userInput = userInput + '0';
+                          userInput = '${userInput}0';
                         });
                       }),
                       myButton(title: "DEL", onPress: () {
@@ -155,10 +161,11 @@ class _calculatorState extends State<calculator> {
                       }),
                       myButton(title: ".", onPress: () {
                         setState(() {
-                          userInput = userInput + '.';
+                          userInput = '$userInput.';
                         });
                       }),
-                      myButton(color: Colors.red, title: "=", onPress: () {
+                      myButton(                        color: Colors.white,
+                           title: "=", onPress: () {
                         equalPress();
                       }),
                     ],
@@ -170,7 +177,7 @@ class _calculatorState extends State<calculator> {
                       myButton(
                         title: "sin",
                         color: Colors.purple,
-                        shape: BoxShape.rectangle,
+                        shape: BoxShape.circle,
                         onPress: () {
                           setState(() {});
                         },
@@ -178,7 +185,7 @@ class _calculatorState extends State<calculator> {
                       myButton(
                         title: "cos",
                         color: Colors.green,
-                        shape: BoxShape.rectangle,
+                        shape: BoxShape.circle,
                         onPress: () {
                           setState(() {});
                         },
@@ -186,7 +193,7 @@ class _calculatorState extends State<calculator> {
                       myButton(
                         title: "tan",
                         color: Colors.blue,
-                        shape: BoxShape.rectangle,
+                        shape: BoxShape.circle,
                         onPress: () {
                           setState(() {});
                         },
@@ -194,7 +201,7 @@ class _calculatorState extends State<calculator> {
                       myButton(
                         title: "√",
                         color: Colors.red,
-                        shape: BoxShape.rectangle,
+                        shape: BoxShape.circle,
                         onPress: () {
                           setState(() {});
                         },
@@ -230,7 +237,7 @@ class myButton extends StatelessWidget {
   final VoidCallback onPress;
   final BoxShape shape; // New parameter for button shape
 
-  myButton({super.key, required this.title, this.color = Colors.grey, required this.onPress, this.shape = BoxShape.circle});
+  const myButton({super.key, required this.title, this.color = Colors.grey, required this.onPress, this.shape = BoxShape.circle});
 
   @override
   Widget build(BuildContext context) {
@@ -248,7 +255,7 @@ class myButton extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),
             ),
           ),
         ),
